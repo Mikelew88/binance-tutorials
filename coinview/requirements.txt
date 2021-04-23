@@ -3,3 +3,4 @@ TA-Lib
 numpy
 backtrader
 flask
+matplotlib==3.2.2
