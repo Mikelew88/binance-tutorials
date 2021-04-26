@@ -77,13 +77,13 @@ def on_message(ws, message):
 
             if last_rsi < RSI_OVERSOLD - (n_positions * POSITION_DECAY):
                 if n_positions <= MAX_POSTITIONS:
-                    print("It is oversold, but you already own max postitions, nothing to do.")
-                else:
                     print("Oversold! Buy! Buy! Buy!")
                     # put binance buy order logic here
                     order_succeeded = order(SIDE_BUY, TRADE_QUANTITY, TRADE_SYMBOL)
                     if order_succeeded:
                         n_positions += 1
+                else:
+                    print("It is oversold, but you already own max postitions, nothing to do.")
 
 
 ws = websocket.WebSocketApp(
